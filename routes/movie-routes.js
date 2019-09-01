@@ -3,8 +3,7 @@ const router  = express.Router();
 
 const Movie     = require('../models/Movie')
 
-
-
+router.get('/', (req, res, next) => res.send("Hello there mano!"));
 
 router.get('/', (req, res, next) => {
     Movie.find()
@@ -17,28 +16,35 @@ router.get('/', (req, res, next) => {
     })
   });
 
-  router.get('/details/:idVariable', (req, res, next)=>{
-    const theID = req.params.idVariable;
-    
-    Movie.findById(theID).populate('cast')
-    .then((result)=>{
-      res.render('movie-views/details', {theSingleMovie: result})
-    })
-    .catch((err)=>{
-      next(err)
-    })
-    });
-    
-    
-    router.get('/create', (req, res, next)=>{
+  router.post('/new', (req, res, next)=>{
+
+    console.log('=-=-=-=-=-=-=-=-=-')
+    console.log(req.body)
+
+    let title = req.body.title;
+    let director = req.body.director;
+    let cast = req.body.cast
+
+    let image = '/images/blah.png';
+    if(req.file){
+      image =  req.file.url;
+    }
   
-      Celebrity.find()
+  
+      Movie.create({
+      title, director, image, cast
+      })
       .then((result)=>{
   
-        res.render('movie-views/new', {allCelebs: result})
+        req.flash('success','New Movie successfully addded to Database')
+  
+        res.redirect('/movies')
+        //res redirect take a url as the argument
+  
       })
       .catch((err)=>{
-        next(err);
+        next(err)
       })
-    });
-  
+  })
+
+module.exports = router;
