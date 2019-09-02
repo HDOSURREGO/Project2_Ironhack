@@ -3,48 +3,41 @@ const router  = express.Router();
 
 const Movie     = require('../models/Movie')
 
-router.get('/', (req, res, next) => res.send("Hello there mano!"));
+//This route get triggered when pressing the Add Movie button 
+//on view "movies"
+router.get('/new-movie', (req, res, next) =>{
+  res.render('movie-views/new-movie');
+});
 
+//This route shows the list of Movies in the MongoDB
 router.get('/', (req, res, next) => {
-    Movie.find()
-    .then((result)=>{
-   
-      res.render('movie-views/movies', {listOfMovies: result});
-    })
-    .catch((err)=>{
-      next(err);
-    })
-  });
-
-  router.post('/new', (req, res, next)=>{
-
-    console.log('=-=-=-=-=-=-=-=-=-')
-    console.log(req.body)
-
-    let title = req.body.title;
-    let director = req.body.director;
-    let cast = req.body.cast
-
-    let image = '/images/blah.png';
-    if(req.file){
-      image =  req.file.url;
-    }
-  
-  
-      Movie.create({
-      title, director, image, cast
-      })
-      .then((result)=>{
-  
-        req.flash('success','New Movie successfully addded to Database')
-  
-        res.redirect('/movies')
-        //res redirect take a url as the argument
-  
-      })
-      .catch((err)=>{
-        next(err)
-      })
+  Movie
+  .find()
+  .then((result)=>{
+  console.log (result);
+  res.render('movie-views/movies', {listOfMovies: result});
   })
+ 
+  .catch((err)=>{
+    next(err);
+  })
+});
 
+//This route creates a new Movie in the MongoDB
+//with the information entered in the form on the 
+//"new-movie" view
+router.post('/new-movie', (req, res, next) => {
+  console.log(req.body);
+    Movie
+    .create(req.body)
+    .then(newMovie=> {
+      res.render('movie-views/movie-saved');
+      console.log("NEW MOVIE: ", newMovie);
+    })
+    .catch(err => console.log("Error while creating a new movie: ", err));
+
+  // console.log('The data from the form: ', req.body);
+  // the "value" from option gets saved inside req.body object
+
+});
 module.exports = router;
