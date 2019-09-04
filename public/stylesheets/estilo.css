@@ -1,0 +1,273 @@
+body{
+background-color: black;
+
+
+}
+/* form for log in */
+.modal-header, h4, .close {
+    background-color:lightblue;
+    color:grey !important;
+    text-align: center;
+	font-size: 30px;
+}
+
+.modal-body{
+	background-image: 'images/avatar_flixtino.jpg';
+}
+
+.modal-footer {
+    background-color: #f9f9f9;
+  }
+
+  /* bottom log in */
+  .btn-success {
+  color: #fff;
+  background-color: #4ca0ae;
+  border-color: #4ca0ae;
+  }
+/* ----------------------TOP--------------------------------------- */
+#top div {
+	/* padding: 50px; */
+	padding:70px;
+}
+
+#top div ul{
+	color:white;
+}
+
+
+/* hace que mi imagen salga al frente */
+#top div:hover {
+	transition: transform .3s;
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);  
+	transform: scale(1.4);
+}
+	
+/* --------------------------------------------------------------------- */
+#center div {
+	/* padding:50px; */
+	padding:70px;
+}
+
+section div:hover{
+	transition: transform .3s;
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);  
+	transform: scale(1.4);
+}
+	
+
+#center div ul {
+	list-style: none;
+	color:	white;
+}
+/* ------------------------------------------------------------------------------ */
+#bottom div{
+	/* padding:50px; */
+	padding: 70px;
+}
+
+#bottom div:hover{
+	transition: transform .3s;
+    -ms-transform: scale(1.4);
+    -webkit-transform: scale(1.4);  
+	transform: scale(1.4);
+}
+/* new */
+/* #bottom div {
+	display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+} */
+
+#bottom div ul{
+	list-style: none;
+}
+	
+/* ----------------------------------------------------------------------------------------------------------------------- */
+#footer  ul{
+	float: right;
+	list-style: none;
+	padding: 20px;
+	font-size: 18px;
+	color:white;
+}
+
+#footer ol {
+	list-style: none;
+	padding:20px auto auto 30px;	
+}
+
+#footer ol li {
+	float:left;
+	width: 50px;
+	height:50px;
+	border-radius: 100%;
+	margin:30px 5px;
+	/* background:url(../img/photo.jpg); */
+	background-size: cover;
+	text-align: center;
+	line-height: 55px;
+	
+}
+
+#footer ol li a {
+color: white;
+}
+
+
+#footer ol li:first-child {
+	background: #1f5694;
+}
+
+#footer ol li:nth-child(2) {
+	background: #C13584;
+}
+
+
+#footer ol li:nth-child(3){
+background:lightblue;
+}
+	
+/* section aside div {
+border:1px solid #999;
+margin-bottom:10px;
+padding-bottom:10px;
+} */
+
+/* section aside div img {
+	margin: 20px auto 10px auto;
+
+} */
+
+/*--Large Desktop--*/
+
+@media (min-width:1200px){
+	#logo img{
+    padding:20px 10px;
+}
+
+#top ul li {
+	list-style: none;
+}
+
+	#btn-button {
+	
+		margin-top:3.5%;
+		/* width nav */
+		width:60%; 
+		/* width: 30%; */
+	}
+
+	#btn-button ul{
+		
+		width:100%;
+		/* width:180%; */
+	}
+
+	#btn-button ul li {
+		/* Every item = 20%  */
+		width:20%;
+		/* width:18%;  */
+		text-align:center;
+		/* background: #ddd; */
+		margin: 0 1%;
+	}
+	
+	/* no se visualizara los botones moviles */
+	/* #botomMovil {
+		display:none
+	}
+	#bottom{
+		display:block;
+	} */ 
+		
+	}
+	
+/* --Medium Desktop--  */
+/* el background sera yellow cuando sea para medium devices */
+	
+@media (max-width:1199px) and (min-width:992px){
+	#logo img{
+		padding:20px 10px;
+	}
+
+	#btn-button {
+	
+		margin-top:3%;
+		width:40%;
+	}
+
+	#btn-button ul{
+		width:100%;
+	}
+	#btn-button ul li {
+		width:20%;
+		text-align:center;
+		background: #ddd;
+	}
+	/* #logo{
+		 background:yellow;
+	}
+	
+	#botomMovil {
+		display:none
+	}
+	#bottom{
+		display:block;
+	}  */
+	}
+	
+/*--Tablets--*/
+	
+@media (max-width:991px) and (min-width:768px){
+	#logo img{
+		padding:20px 240px;
+	}
+
+
+	#btn-button {
+		margin-top:3% 0;
+		width:40%;
+	}
+
+	#btn-button ul{
+		width:100%;
+	}
+	#btn-button ul li {
+		width:100%;
+		text-align:center;
+		background: #ddd;
+	/* #logo{
+		background:orange;
+	} 
+	
+	#botomMovil {
+		display:none;
+	}
+	#bottom{
+		display:block;
+	} */
+	}
+}
+	
+/*--Phones--*/
+	
+@media (max-width:767px){
+
+	#logo{
+		background:white	;
+	}
+	#logo img{
+		padding:20px 30px;
+	}
+
+	/* #logo{
+		background:green;
+	}
+	#bottom{
+		display:none;
+	} */
+				
+	}

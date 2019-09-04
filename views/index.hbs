@@ -1,4 +1,65 @@
-{{!-- <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p> --}}
+<div  id="myCarousel" class="row carousel slide"  data-ride="carousel">
 
-<h>Hola a todos, este es el home page</h>
+    
+        <!-- seran los botenes de las imagenes que contiene el slide -->
+        <ul class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"> </li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+        </ul>
+        
+        
+        <!-- este div encerrara cada uno de las imagenes -->
+            <div class="carousel-inner">
+    
+            <!-- item seran las imagenes a poner, active en la clase pq sera la primera-->
+                 <div class="item active"> 
+                     <img class="img-responsive" src="images/poster1.jpg"> 
+                </div>
+    
+                <div class="item"> 
+                      <img class="img-responsive" src="images/poster2.jpg"> 
+                </div>
+    
+                 <div class="item"> 
+                    <img class="img-responsive" src="images/poster3.jpg"> 
+                </div>
+
+                <div class="item"> 
+                        <img class="img-responsive" src="images/poster4.jpg"> 
+                    </div>
+
+                    
+                <div class="item"> 
+                        <img class="img-responsive" src="images/poster5.jpg"> 
+                    </div>
+
+                        
+                <div class="item"> 
+                        <img class="img-responsive" src="images/poster6.jpg"> 
+                    </div>
+                
+            </div>
+            
+    </div>
+<!-- Fila Top -->
+<div class="row" id="top">
+    {{#each listOfMovies}}
+    
+    <div  class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+     <!-- 100% para que no salga de mi caja -->
+     <a href="#photo1" data-toggle="modal"> <img src="images/landscape.jpg" alt="landscape" width="100%" class="img-rounded"> </a>
+        <ul>
+            <li>Title: {{this.title}} </li>
+            <li>Genre: {{this.genre}}</li>
+            <li>Duration:{{this.duration}}</li>          
+        </ul>
+    
+    </div>
+
+    {{/each}}
+
+</div>

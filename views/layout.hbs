@@ -1,16 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/estilo.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    
+    <script src="javascripts/jquery-2.2.0.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="javascripts/logIn.js"></script>
+
+    <title>{{title}}</title>
 </head>
+
+
+<div class="container-fluid">
+       
+        <!-- 1ra fila -->
+    <header class="row">
+
+        <!--  caja logo -->
+        <div id="logo" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <img src="images/logo.png" class="img-responsive" alt="logo">
+        </div>
+
+        <!-- nav bar Movil -->
+         <!-- <div id="btn-buttonMovil" class="navbar-header navbar-inverse">
+
+            <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#btn-button">
+                opciones  
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>  -->
+
+    
+        <!-- caja boton nav-bar pull-right en la clase llevara el nav hacia la derecha-->
+            <nav id="btn-button" class="col-lg-9 col-md-9 col-sm-12 col-xs-12  pull-right" >
+             <ul class="nav navbar-nav">
+
+                 <!-- <li><a href="#">Home</a> </li>  -->
+                   <li> <a href="#" class="btn btn-info btn-lg">
+                         <span class="glyphicon glyphicon-home"></span> Home
+                     </a> </li>
+
+                     <!-- <li><a href="#">Sign In</a></li> -->
+                     <li><a href="#" class="btn btn-info btn-lg">
+                         <span class="glyphicon glyphicon-user"></span> Register
+                        </a></li>
+                       
+                        <!-- <li><a href="#">Sign Up</a></li> -->
+                         <li><a href="#" class="btn btn-info btn-lg" id="myBtn">
+                            <span class="glyphicon glyphicon-user"></span> Log in 
+                        </a></li> 
+                        <!-- pop ups Form  -->
+                         <div class="modal fade" id="myModal" role="dialog"> 
+                                <div class="modal-dialog">
+                                
+                                  <div class="modal-content">
+                                    <div class="modal-header" style="padding:35px 50px;">
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                      <h4><span class="glyphicon glyphicon-lock"></span> Welcome to Flixtino</h4>
+                                    </div>
+                                    <div class="modal-body" style="padding:40px 50px;">
+                                      <form role="form">
+                                        <div class="form-group">
+                                          <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                                          <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                          <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                                          <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                                        </div>
+                                        <div class="checkbox">
+                                          <label><input type="checkbox" value="" checked>Remember me</label>
+                                        </div>
+                                          <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                                      </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                                      <p>Not a member? <a href="#">Sign Up</a></p>
+                                      <p>Forgot <a href="#">Password?</a></p>
+                                    </div>
+                                  </div>
+                                  
+                                </div>
+                              </div>  
+                            
+                            {{!-- <li><a href="#" class="btn btn-info btn-lg">
+                                 <span class="glyphicon glyphicon-info-sign"></span> Info
+                            </a></li> --}}
+              </ul>
+    
+          </nav>
+            
+                    <!-- para que me aparezca solo los botones moviles -->
+                    <!-- <div id="botomMovil" class="col-xs-2" style="background:goldenrod; height:50px">Movil</div> -->
+    </header>
+
 <body>
 
   {{{body}}}
 
   <script src="/javascripts/script.js"></script>
 </body>
+
+<footer class="row" id="footer">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                
+                
+            <ul>
+                <li><span class="glyphicon glyphicon-phone"></span>   (786)-555-555</li>
+                <li><span class="glyphicon glyphicon-map-marker"></span>  1 Flixtino Street, Miami FL 33000</li>
+                <li><a href="flixtino@gmail.com"><span class="glyphicon glyphicon-envelope"></span>  flixtino@gmail.com</a></li>
+            </ul>
+        </div>
+      
+        
+        <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12" >
+            <ol>
+                <li>
+                    <a href="http://www.facebook.com" target="_blank"> 
+                    <i class="fa fa-facebook" style="font-size: 24px"></i>
+                </a></li>
+                    
+                <li><a href="http://www.instagram.com" target="_blank"> 
+                    <i class="fa fa-instagram" style="font-size: 24px"></i>
+                </a></li>
+               
+                <li>
+                <a href="http://www.twitter.com" target="_blank"> 
+                            <i class="fa fa-twitter" style="font-size: 24px"></i></a></li>
+                </li>
+            </ol>
+        </div>
+    </footer>
+
+
 </html>
