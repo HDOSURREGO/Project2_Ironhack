@@ -1,8 +1,9 @@
 const express = require('express');
 const router  = express.Router();
+const cloudinary = require('cloudinary');
 
-const Movie     = require('../models/Movie')
-const upload = require('../config/cloud.js');
+const Movie   = require('../models/Movie')
+const upload  = require('../config/cloud.js');
 
 
 //This route gets triggered when pressing the Upload a Movie button 
@@ -20,6 +21,13 @@ router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
   if(req.file){
     newMovie.image = req.file.url;
   }
+
+
+  
+  cloudinary.v2.uploader.unsigned_upload('video-file'+req.file.filename, vyjpb8fp, { resource_type: "video" },
+  function(error, result) { console.log(result, error); });
+  newMovie.movieFile = result.url;
+
     Movie
     .create(newMovie)
     .then(newMovie=> {
@@ -32,3 +40,4 @@ router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
 
 });
 module.exports = router;
+
