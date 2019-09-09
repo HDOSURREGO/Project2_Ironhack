@@ -1,57 +1,69 @@
-<h2>Add a New Movie To the Database</h2>
 
-<form id="new-movie-form" action="/movies/new-movie" method="POST">
+<title>Upload a New Movie</title>
+            <div class="container-fluid">
+                <div class="row">
+                <h1 style="text-align: center"> <i class="fa fa-plus"></i>  Add a new Movie</h1>
+                <div style="width:30%; margin:25px auto;">
+                    
+                    <!-- {{!-- action attribute specifies where to send the form-data --}} -->
+                
+                <form action="/movies/new-movie" method="POST" enctype="multipart/form-data" >      
+                <div class="form-group">
+                <input class="form-control" type="text" placeholder="Title" name="title" id="">
+                </div>
+​
+                <div class="form-group">
+                <select class="form-control" name = 'genre'>
+                        <option selected disabled >Genre</option>
+                        <option>Drama</option>
+                        <option>Comedy</option>
+                        <option>Action</option>
+                        <option>Suspense</option>
+                        <option>Terror</option>
+                        <option>SciFi</option>
+                      </select>
+                </div>
 
-      <div>
-      <label>Title</label>
-      <input type="text" name="title">
-      </div>
+                 <div class="form-group">
+                <input class="form-control" type="text" placeholder="Duration" name="duration" id="">
+                </div>
+​
+​
+                <div class="form-group">
+                <textarea class="form-control" rows="5" id="comment" maxlength="250" placeholder="Description" name='description'></textarea>
+                </div>
+                
+                <!-- Year Picker FIX -->
+                <div class="form-group">
+                <input placeholder="Year of Release" type="text" id="date-picker-example" class="form-control datepicker" name='year'>
+                </div>
 
-      <div>
-      <label>Genre</label>
-      <input type="text" name="genre">
-      </div>
-
-      <div>
-      <label>Duration</label>
-      <input type="text" name="duration">
-      </div>
-
-      <div>
-      <label>Description</label>
-      <input type="text" name="description">
-      </div>
-
-      <div>
-      <label>Year</label>
-      <input type="text" name="year">
-      </div>
-
-      <div>
-      <label>Language</label>
-      <input type="text" name="language">
-      </div>
-
-      <div>
-      <label>Rating</label>
-      <input type="text" name="rating">
-      </div>
-
-      <div>
-      <label>Image</label>
-      <input type="file" name="image-filename">
-      </div>
-
-      <div>
-      <label>Movie File</label>
-      <input type="text" name="movie-filename">
-      </div>
-
-      <div>
-      <label>Cast (Enter Cast and Crew ??)</label>
-      <input type="text" name="cast-and-crew">
-      </div>
-
-<button>Save</button>
-
-</form>
+                 <div class="form-group">
+                <input class="form-control" type="text" placeholder="Rating" name="rating" id="">
+                </div>
+                
+                <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile" name="poster-file">
+                        <p class="help-block">You can upload the poster here.</p>
+                </div>
+​
+            
+                
+                <!-----------------------------------------------------------------------------------------  -->
+                <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile" name="video-file">
+                        <p class="help-block">You can upload the movie here.</p>
+                      </div>
+​
+                <!-- ------------------------------------------------------------------------------------------ -->
+​
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                </form>
+                 
+                </div>
+            
+                </div>
+                
+            </div>

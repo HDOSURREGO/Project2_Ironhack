@@ -1,38 +1,37 @@
 const express = require('express');
 const router  = express.Router();
+const cloudinary = require('cloudinary');
 
-const Movie     = require('../models/Movie')
+const Movie   = require('../models/Movie')
+const upload  = require('../config/cloud.js');
 
-//This route gets triggered when pressing the Add Movie button 
-//on view "movies"
+
+//This route gets triggered when pressing the Upload a Movie button 
+//on the nav bar
 router.get('/new-movie', (req, res, next) =>{
   res.render('movie-views/new-movie');
 });
 
-//This route shows the list of Movies in the MongoDB
-router.get('/', (req, res, next) => {
-  Movie
-  .find()
-  .then((result)=>{
-  res.render('movie-views/movies', {listOfMovies: result});
-  })
-  .catch((err)=>{
-    next(err);
-  })
-});
-
-
-
 //This route creates a new Movie in the MongoDB
 //with the information entered in the form on the 
 //"new-movie" view
-router.post('/new-movie', (req, res, next) => {
-  // console.log(req.body);
+router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
+  let newMovie = req.body;
+  newMovie.image = 'images/avatar.jpg';
+  if(req.file){
+    newMovie.image = req.file.url;
+  }
+
+
+  
+  cloudinary.v2.uploader.unsigned_upload('video-file'+req.file.filename, vyjpb8fp, { resource_type: "video" },
+  function(error, result) { console.log(result, error); });
+  newMovie.movieFile = result.url;
+
     Movie
-    .create(req.body)
+    .create(newMovie)
     .then(newMovie=> {
       res.render('movie-views/movie-saved');
-      // console.log("NEW MOVIE: ", newMovie);
     })
     .catch(err => console.log("Error while creating a new movie: ", err));
 
@@ -41,3 +40,4 @@ router.post('/new-movie', (req, res, next) => {
 
 });
 module.exports = router;
+
