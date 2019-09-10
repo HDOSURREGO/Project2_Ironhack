@@ -1,8 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const cloudinary = require('cloudinary');
-
-const Movie   = require('../models/Movie')
+const multer        = require('multer');
+const localstore = multer({dest: './public/uploads/'})
+const Movie = require('../models/Movie')
 const upload  = require('../config/cloud.js');
 
 
@@ -15,23 +16,16 @@ router.get('/new-movie', (req, res, next) =>{
 //This route creates a new Movie in the MongoDB
 //with the information entered in the form on the 
 //"new-movie" view
-router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
+router.post('/new-movie', upload.single('poster-file'), (req, res, next) => {
   let newMovie = req.body;
   newMovie.image = 'images/avatar.jpg';
   if(req.file){
     newMovie.image = req.file.url;
   }
-
-// hah
-  
-  // cloudinary.v2.uploader.unsigned_upload('video-file'+req.file.filename, vyjpb8fp, { resource_type: "video" },
-  // function(error, result) { console.log(result, error); });
-  // newMovie.movieFile = result.url;
-
     Movie
     .create(newMovie)
     .then(newMovie=> {
-      res.render('movie-views/movie-saved');
+      res.render('movie-views/moviefile-upload');
     })
     .catch(err => console.log("Error while creating a new movie: ", err));
 
@@ -39,5 +33,26 @@ router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
   // the "value" from option gets saved inside req.body object
 
 });
+
+router.post('/moviefile-upload', localstore.single('video-file'), (req, res, next)=>{
+  const newMovieFile = new Movie({
+      movieFile: req.file.filename,
+      description: req.body.description
+  })
+      cloudinary.v2.uploader.upload('./public/uploads/'+req.file.filename,
+       {resource_type: 'video'}, function(error,result){
+          console.log("=============================================", result, error)
+          newMovieFile.movieFile = result.url;
+          newMovieFile.save()
+          .then((response)=>{
+              res.redirect('../index');
+          })
+          .catch((err)=>{
+              next(err);
+          });
+           
+      })
+});
+
 module.exports = router;
 
