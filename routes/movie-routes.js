@@ -22,11 +22,11 @@ router.post('/new-movie', upload.single('poster-file'),  (req, res, next) => {
     newMovie.image = req.file.url;
   }
 
-
+// hah
   
-  cloudinary.v2.uploader.unsigned_upload('video-file'+req.file.filename, vyjpb8fp, { resource_type: "video" },
-  function(error, result) { console.log(result, error); });
-  newMovie.movieFile = result.url;
+  // cloudinary.v2.uploader.unsigned_upload('video-file'+req.file.filename, vyjpb8fp, { resource_type: "video" },
+  // function(error, result) { console.log(result, error); });
+  // newMovie.movieFile = result.url;
 
     Movie
     .create(newMovie)
