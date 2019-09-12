@@ -1,22 +1,13 @@
-<h1>
-{{theSingleMovie.title}}
+<h1> Title:
+{{theMovie.title}}
 </h1>
 
+<video width="320" height="240" controls>
+  <source src="{{theMovie.movieFile}}" type="video/mp4">
+</video>
 
+<img src="{{theMovie.image}}" alt="" style="width: 300px">
 
-<h4>
-Directed By: {{theSingleMovie.director}}
-</h4>
-
-
-<img src="{{theSingleMovie.image}}" alt="" style="width: 300px">
-
-
-<h2>Cast & Crew</h2>
-{{#each theSingleMovie.cast}}
-
-<div>
-    {{this.name}}
-</div>
-
-{{/each}}
+<h1>
+Genre: {{theMovie.genre}}
+</h1>

@@ -1,4 +1,8 @@
 
+
+
+
+
 <title>Upload a New Movie</title>
             <div class="container-fluid">
                 <div class="row">
@@ -7,7 +11,7 @@
                     
                     <!-- {{!-- action attribute specifies where to send the form-data --}} -->
                 
-                <form action="/movies/new-movie" method="POST" enctype="multipart/form-data" >      
+                <form id="uploadForm" action="/movies/new-movie" method="POST" enctype="multipart/form-data" >      
                 <div class="form-group">
                 <input class="form-control" type="text" placeholder="Title" name="title" id="">
                 </div>
@@ -24,7 +28,7 @@
                       </select>
                 </div>
 
-                 <div class="form-group">
+                <div class="form-group">
                 <input class="form-control" type="text" placeholder="Duration" name="duration" id="">
                 </div>
 ​
@@ -42,50 +46,72 @@
                 <input class="form-control" type="text" placeholder="Rating" name="rating" id="">
                 </div>
                 
-                <div class="form-group">
+                {{!-- <div class="form-group">
                         <label for="exampleInputFile">File input</label>
                         <input type="file" id="exampleInputFile" name="poster-file">
                         <p class="help-block">You can upload the poster here.</p>
+                </div> --}}
+                <div class="form-group">
+                        <input type="text" id="posterfile" name="posterfile">
                 </div>
 
+                <div class="form-group">
+                        <input type="text" id="movieFile" name="movieFile">
+                </div>
 
-                <button id="upload_widget" class="cloudinary-button">Upload files</button>
-
- 
-             <button class="btn btn-lg btn-primary btn-block">Submit</button>
+                  <button class="btn btn-lg btn-primary btn-block">Submit</button>
                 </form>
+
+             
+             
+             <button id="upload_widget" class="btn btn-success">Upload files</button>
+              <script type="text/javascript">  
+              
+              let wgResults = {};
+              let filesNum = 0;
+              let myWidget = cloudinary.createUploadWidget({
+                cloudName: 'hdosurrego', 
+                uploadPreset: 'vyjpb8fp'}, (error, result) => { 
+                  if (!error && result && result.event === "upload-added") { 
+                    console.log('upload-added!: ', result); 
+                    wgResults[result.info.file.name] = {};
+                    filesNum++;
+                  }else if (!error && result && result.event === "success") { 
+                    console.log('success!: ', result); 
+                    let fileName = result.info.original_filename + '.' + result.info.format;
+                    wgResults[fileName] = result.info;
+                    filesNum--;
+                  }
+
+                  console.log('filesNum!: ', filesNum);
+                  if (filesNum===0 && !error && result && result.event === "success"){
+                    console.log('ready!: ', wgResults); 
+                    successUpload(wgResults);
+                  }
+                }
+              )
+              
+              function successUpload(wgResults){
+
+                Object.keys(wgResults).forEach((fileName) => {
+                  let data = wgResults[fileName];
+                  console.log(data);
+                  if (data.format==='png'){
+                    document.getElementById('posterfile').value = data.url;
+                  }else if (data.format==='mp4'){
+                    document.getElementById('movieFile').value = data.url;
+                  }
+                });
+
+              }
+
+              document.getElementById("upload_widget").addEventListener("click", function(){
+                  myWidget.open();
+                }, false);
+              </script>
 
                 </div>
             
                 </div>
                 
             </div>
-            
-          <button id="upload_widget" class="cloudinary-button">Upload files</button>
-          <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
-          <script type="text/javascript">  
-          let myWidget = cloudinary.createUploadWidget({
-            cloudName: 'hdosurrego'}, (error, result) => { 
-              if (!error && result && result.event === "success") { 
-                console.log('Done! Here is the image info: ', result.info); 
-              }
-            }
-          )
-
-            document.getElementById("upload_widget").addEventListener("click", function(){
-                myWidget.open();
-              }, false);
-            </script>
-​
-                
-                {{!-- <!-----------------------------------------------------------------------------------------  -->
-                <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" id="exampleInputFile" name="video-file">
-                        <p class="help-block">You can upload the movie here.</p>
-                      </div>
-​
-                <!-- ------------------------------------------------------------------------------------------ --> --}}
-​
-               
-                 
