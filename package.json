@@ -11,13 +11,19 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.15.0",
+<<<<<<< HEAD
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.0.0",
+=======
+    "cloudinary-core": "^2.7.4",
+    "cloudinary-video-player": "^1.2.1",
+>>>>>>> f98dca249bbc59381f9b1aa8f63b699959be8fce
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-session": "^1.16.2",
     "hbs": "^4.0.1",
+    "lodash": "^4.17.15",
     "mongoose": "^5.2.10",
     "morgan": "^1.9.0",
     "multer": "^1.4.2",

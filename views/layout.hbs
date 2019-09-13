@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheets/font-awesome.min.css">
-    <link rel="stylesheet" href="../stylesheets/estilo.css">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/estilo.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+    <link href="/node_modules/cloudinary-video-player/dist/cld-video-player.min.css" rel="stylesheet">
+    <script src="/node_modules/lodash/lodash.js" type="text/javascript"></script>
+    <script src="/node_modules/cloudinary-core/cloudinary-core.js" type="text/javascript"></script>
+    <script src="/node_modules/cloudinary-video-player/dist/cld-video-player.min.js" type="text/javascript"></script>
+
     
-    <script src="../javascripts/jquery-2.2.0.min.js"></script>
-    <script src="../javascripts/bootstrap.min.js"></script>
-    <script src="../javascripts/logIn.js"></script>
+    
+    <script src="/javascripts/jquery-2.2.0.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/logIn.js"></script>
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script> 
 
     <title>{{title}}</title>
 </head>
@@ -24,7 +32,7 @@
 
         <!--  caja logo -->
         <div id="logo" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <img src="../images/logo.png" class="img-responsive" alt="logo">
+            <img src="/images/logo.png" class="img-responsive" alt="logo">
         </div>
 
         <!-- nav bar Movil -->
@@ -45,16 +53,31 @@
 
                  <!-- <li><a href="#">Home</a> </li>  -->
                    <li> <a href="../" class="btn btn-info btn-lg">
-                         <span class="glyphicon glyphicon-home"></span> Home
+                         {{!-- <span class="glyphicon glyphicon-home"></span> Home --}}
+                         <i class="fa fa-home"></i> Home
                      </a> </li>
 
                      <!-- <li><a href="#">Sign In</a></li> -->
+<<<<<<< HEAD
                      <li><a href="#" class="btn btn-info btn-lg" id="regBtn">
                          <span class="glyphicon glyphicon-user"></span> Register
                         </a></li>
 
                         {{!-- register form --}}
                         <div class="modal fade" id="regModal" role="dialog"> 
+=======
+                     <li><a href="#" class="btn btn-info btn-lg">
+                         {{!-- <span class="glyphicon glyphicon-user"></span> Register --}}
+                         <i class="fa fa-user-plus"></i> Register
+                        </a></li>
+                       
+                        <!-- <li><a href="#">Sign Up</a></li> -->
+                         <li><a href="#" class="btn btn-info btn-lg" id="myBtn">
+                            <span class="fa fa-user"></span> Log in 
+                        </a></li> 
+                        <!-- pop ups Form  -->
+                         <div class="modal fade" id="myModal" role="dialog"> 
+>>>>>>> f98dca249bbc59381f9b1aa8f63b699959be8fce
                                 <div class="modal-dialog">
                                 
                                   <div class="modal-content">
@@ -116,7 +139,7 @@
 
   {{{body}}}
 
-  <script src="../javascripts/script.js"></script>
+  <script src="/javascripts/script.js"></script>
 </body>
 
 <footer class="row" id="footer">

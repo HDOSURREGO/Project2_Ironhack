@@ -1,22 +1,33 @@
-<h1>
-{{theSingleMovie.title}}
+<h1> Title:
+{{theMovie.title}}
 </h1>
 
+<video class="videoplayer" width="960" height="480" controls>
+  <source src="{{theMovie.movieFile}}" type="video/mp4">
+</video>
 
+<br>
 
-<h4>
-Directed By: {{theSingleMovie.director}}
-</h4>
+<img src="{{theMovie.image}}" alt="" style="width: 300px">
 
+<h1>
+Genre: {{theMovie.genre}}
+</h1>
 
-<img src="{{theSingleMovie.image}}" alt="" style="width: 300px">
+{{!-- <iframe
+  src="{{theMovie.movieFile}}"
+  width="640"
+  height="480"
+  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+  allowfullscreen
+  frameborder="0"
+></iframe> --}}
 
-
-<h2>Cast & Crew</h2>
-{{#each theSingleMovie.cast}}
-
-<div>
-    {{this.name}}
-</div>
-
-{{/each}}
+{{!-- <video
+  id="demo-player"
+  class="cld-video-player cld-video-player-skin-dark"
+  <source src="{{theMovie.movieFile}}" type="video/mp4">
+  controls
+  autoplay
+  class="cld-video-player">
+</video> --}}
