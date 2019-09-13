@@ -183,11 +183,15 @@ padding-bottom:10px;
 		display:block;
 	} */ 
 		
-	}
-	
+}
+
+.movieTitle{
+	color: white;
+}
 /* --Medium Desktop--  */
 /* el background sera yellow cuando sea para medium devices */
 	
+
 @media (max-width:1199px) and (min-width:992px){
 	#logo img{
 		padding:20px 10px;
@@ -217,12 +221,9 @@ padding-bottom:10px;
 	#bottom{
 		display:block;
 	}  */
-	}
-
-/* video player*/
+}
 
 
-	
 /*--Tablets--*/
 	
 @media (max-width:991px) and (min-width:768px){
