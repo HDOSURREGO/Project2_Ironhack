@@ -4,4 +4,10 @@
     $("#myModal").modal();
     });
     });
+
+    $(document).ready(function(){
+      $("#regBtn").click(function(){
+      $("#regModal").modal();
+      });
+      });
                             
