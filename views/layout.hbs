@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="/stylesheets/estilo.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
 
-    <link href="node_modules/cloudinary-video-player/dist/cld-video-player.min.css" rel="stylesheet">
-    <script src="node_modules/lodash/lodash.js" type="text/javascript"></script>
-    <script src="node_modules/cloudinary-core/cloudinary-core.js" type="text/javascript"></script>
-    <script src="node_modules/cloudinary-video-player/dist/cld-video-player.min.js" type="text/javascript"></script>
+    <link href="/node_modules/cloudinary-video-player/dist/cld-video-player.min.css" rel="stylesheet">
+    <script src="/node_modules/lodash/lodash.js" type="text/javascript"></script>
+    <script src="/node_modules/cloudinary-core/cloudinary-core.js" type="text/javascript"></script>
+    <script src="/node_modules/cloudinary-video-player/dist/cld-video-player.min.js" type="text/javascript"></script>
+
+    
     
     <script src="/javascripts/jquery-2.2.0.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
@@ -51,17 +53,19 @@
 
                  <!-- <li><a href="#">Home</a> </li>  -->
                    <li> <a href="../" class="btn btn-info btn-lg">
-                         <span class="glyphicon glyphicon-home"></span> Home
+                         {{!-- <span class="glyphicon glyphicon-home"></span> Home --}}
+                         <i class="fa fa-home"></i> Home
                      </a> </li>
 
                      <!-- <li><a href="#">Sign In</a></li> -->
                      <li><a href="#" class="btn btn-info btn-lg">
-                         <span class="glyphicon glyphicon-user"></span> Register
+                         {{!-- <span class="glyphicon glyphicon-user"></span> Register --}}
+                         <i class="fa fa-user-plus"></i> Register
                         </a></li>
                        
                         <!-- <li><a href="#">Sign Up</a></li> -->
                          <li><a href="#" class="btn btn-info btn-lg" id="myBtn">
-                            <span class="glyphicon glyphicon-user"></span> Log in 
+                            <span class="fa fa-user"></span> Log in 
                         </a></li> 
                         <!-- pop ups Form  -->
                          <div class="modal fade" id="myModal" role="dialog"> 

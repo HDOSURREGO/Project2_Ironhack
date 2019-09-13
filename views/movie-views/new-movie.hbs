@@ -52,18 +52,17 @@
                         <p class="help-block">You can upload the poster here.</p>
                 </div> --}}
                 <div class="form-group">
-                        <input type="text" id="posterfile" name="posterfile">
+                        <input class="form-control" type="text" id="posterfile" name="posterfile" placeholder="image url">
                 </div>
 
                 <div class="form-group">
-                        <input type="text" id="movieFile" name="movieFile">
+                        <input class="form-control"  type="text" id="movieFile" name="movieFile" placeholder="video url">
                 </div>
 
                   <button class="btn btn-lg btn-primary btn-block">Submit</button>
                 </form>
+              <br>
 
-             
-             
              <button id="upload_widget" class="btn btn-success">Upload files</button>
               <script type="text/javascript">  
               
@@ -96,7 +95,7 @@
                 Object.keys(wgResults).forEach((fileName) => {
                   let data = wgResults[fileName];
                   console.log(data);
-                  if (data.format==='png'){
+                  if (data.format==='jpg' || data.format === 'png'){
                     document.getElementById('posterfile').value = data.url;
                   }else if (data.format==='mp4'){
                     document.getElementById('movieFile').value = data.url;
