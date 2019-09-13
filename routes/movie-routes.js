@@ -18,7 +18,7 @@ router.get('/new-movie', (req, res, next) =>{
 // "new-movie" view
 router.post('/new-movie', upload.single('poster-file'), (req, res, next) => {
   let newMovie = req.body;
-  newMovie.image = 'images/avatar.png';
+  newMovie.image = 'images/avatar.jpg';
   // if(req.file){
   //   newMovie.image = req.file.url;
   // }

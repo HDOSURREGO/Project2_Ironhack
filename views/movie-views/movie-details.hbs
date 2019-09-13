@@ -2,12 +2,32 @@
 {{theMovie.title}}
 </h1>
 
-<video width="320" height="240" controls>
+<video class="videoplayer" width="960" height="480" controls>
   <source src="{{theMovie.movieFile}}" type="video/mp4">
 </video>
+
+<br>
 
 <img src="{{theMovie.image}}" alt="" style="width: 300px">
 
 <h1>
 Genre: {{theMovie.genre}}
 </h1>
+
+{{!-- <iframe
+  src="{{theMovie.movieFile}}"
+  width="640"
+  height="480"
+  allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+  allowfullscreen
+  frameborder="0"
+></iframe> --}}
+
+{{!-- <video
+  id="demo-player"
+  class="cld-video-player cld-video-player-skin-dark"
+  <source src="{{theMovie.movieFile}}" type="video/mp4">
+  controls
+  autoplay
+  class="cld-video-player">
+</video> --}}
