@@ -5,9 +5,13 @@
   <source src="{{theMovie.movieFile}}" type="video/mp4">
 </video>
 <br>
-{{!-- <img src="{{theMovie.image}}" alt="" style="width: 300px"> --}}
+
 <h3>Genre: {{theMovie.genre}}</h3>
 <h3>Duration: {{theMovie.duration}}</h3>
 <h3>Year: {{theMovie.year}}</h3>
 <div><h3>Description:</h3><p>{{theMovie.description}}</p></div>
+
+<form action="/movies/{{theMovie._id}}/delete" method="POST">
+    <button type="submit">Delete Movie</button>
+</form>
 </div>

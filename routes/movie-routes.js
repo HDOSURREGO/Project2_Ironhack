@@ -5,11 +5,13 @@ const multer        = require('multer');
 const localstore = multer({dest: './public/uploads/'})
 const Movie = require('../models/Movie')
 const upload  = require('../config/cloud.js');
+const User = require('../models/User')
+const ensureLogin = require("connect-ensure-login")
 
 
 //This route gets triggered when pressing the Upload a Movie button 
 //on the nav bar
-router.get('/new-movie', (req, res, next) =>{
+router.get('/new-movie', ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) =>{
   res.render('movie-views/new-movie');
 });
 
@@ -45,6 +47,20 @@ router.get('/details/:id', (req, res, next)=>{
   .catch((err)=>{
     next(err)
   })
+  })
+
+
+  router.post('/:id/delete', (req, res, next)=>{
+    const id=req.params.id;
+  
+    Movie.findByIdAndRemove(id)
+    .then((result)=>{
+      console.log(result);
+      res.render('movie-views/delete', {theMovie: result})
+    })
+    .catch((err)=>{
+      next(err);
+    })
   })
 
 module.exports = router;
